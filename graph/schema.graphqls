@@ -1,0 +1,39 @@
+
+type User {
+  id: ID!
+  name: String!
+  dob: String!
+  address: String!
+  position: Position!
+}
+
+type Position {
+  id: ID!
+  user_id: ID!
+  postionName: String!
+  salary: String!
+}
+
+type Query {
+  users: [User!]!
+}
+
+input NewUser {
+  name: String!
+  dob: String!
+  address: String!
+  postion_name: String
+  salary: ID
+}
+
+input EditPostion {
+  id: ID!
+  postion_name: String!
+  salary: ID!
+}
+
+
+type Mutation {
+  createUser(input: NewUser!): User!
+  editPostion(input: EditPostion!): User!
+}
